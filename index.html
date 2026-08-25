@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bourbon Daiquiris Wings & Things | Westbank, New Orleans</title>
+<meta name="description" content="Let's make POUR decisions. Frozen daiquiris, wings & seafood boils on General De Gaulle Drive, New Orleans.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Manrope:wght@400;500;600;700;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+  tailwind.config = {
+    theme: {
+      extend: {
+        colors: {
+          oak: { 950: '#170d07', 900: '#241205', 800: '#3a1c0c', 700: '#4a2410' },
+          gold: { DEFAULT: '#d4a24c', light: '#e8c586' },
+          cream: '#f7ecd9',
+          daiq: { blue: '#2fb8d4', pink: '#ff5c8a', lime: '#c4e558', purple: '#a06bd8' }
+        },
+        fontFamily: {
+          display: ['Anton', 'sans-serif'],
+          body: ['Manrope', 'sans-serif'],
+          mono: ['Space Mono', 'monospace']
+        }
+      }
+    }
+  }
+</script>
+<style>
+  body { background: #170d07; }
+  .grain::before {
+    content: ''; position: fixed; inset: 0; pointer-events: none; z-index: 1; opacity: 0.05;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+  .swirl-bg {
+    background: radial-gradient(circle at 20% 30%, rgba(47,184,212,0.25), transparent 45%),
+                radial-gradient(circle at 80% 20%, rgba(255,92,138,0.22), transparent 45%),
+                radial-gradient(circle at 60% 80%, rgba(196,229,88,0.15), transparent 45%),
+                radial-gradient(circle at 10% 90%, rgba(160,107,216,0.18), transparent 45%);
+  }
+  .ticket {
+    background: #241205;
+    border: 1px dashed #d4a24c66;
+    position: relative;
+  }
+  .ticket::before, .ticket::after {
+    content: ''; position: absolute; width: 16px; height: 16px; background: #170d07; border-radius: 50%;
+    top: 50%; transform: translateY(-50%);
+  }
+  .ticket::before { left: -9px; }
+  .ticket::after { right: -9px; }
+  .flavor-dot {
+    transition: transform 0.4s ease;
+  }
+  .flavor-dot:hover { transform: scale(1.15) rotate(8deg); }
+  .photo-frame {
+    aspect-ratio: 4/3; overflow: hidden; background: #3a1c0c;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .photo-frame img { width: 100%; height: 100%; object-fit: cover; }
+  .placeholder-label {
+    color: #d4a24c; font-family: 'Space Mono', monospace; font-size: 0.7rem; text-align: center; padding: 1rem;
+    letter-spacing: 0.05em; text-transform: uppercase;
+  }
+  html { scroll-behavior: smooth; }
+</style>
+</head>
+<body class="grain bg-oak-950 text-cream font-body">
+
+<!-- NAV -->
+<nav class="fixed top-0 w-full z-50 bg-oak-950/90 backdrop-blur border-b border-gold/20">
+  <div class="max-w-6xl mx-auto px-5 py-3 flex items-center justify-between">
+    <span class="font-display text-lg tracking-wide text-gold">BOURBON DAIQUIRIS</span>
+    <div class="hidden md:flex gap-7 font-mono text-xs uppercase tracking-widest text-cream/80">
+      <a href="#lineup" class="hover:text-gold transition">This Week</a>
+      <a href="#menu" class="hover:text-gold transition">Menu</a>
+      <a href="#events" class="hover:text-gold transition">Book an Event</a>
+      <a href="#visit" class="hover:text-gold transition">Visit</a>
+    </div>
+    <a href="#events" class="font-mono text-xs uppercase tracking-widest bg-gold text-oak-950 px-4 py-2 rounded-sm font-bold hover:bg-gold-light transition">Reserve</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="relative swirl-bg pt-32 pb-24 px-5 overflow-hidden">
+  <div class="max-w-5xl mx-auto text-center relative z-10">
+    <p class="font-mono text-xs uppercase tracking-[0.3em] text-daiq-lime mb-5">Westbank &middot; New Orleans, LA</p>
+    <h1 class="font-display text-5xl sm:text-7xl md:text-8xl leading-[0.95] mb-6">
+      LET'S MAKE<br>
+      <span class="text-transparent bg-clip-text bg-gradient-to-r from-daiq-blue via-daiq-pink to-daiq-lime">POUR DECISIONS</span>
+    </h1>
+    <p class="font-body text-cream/80 text-lg max-w-xl mx-auto mb-10">
+      Frozen daiquiris, crispy wings, and seafood boils — served curbside on General De Gaulle Drive, every single day of the week.
+    </p>
+    <div class="flex flex-col sm:flex-row gap-4 justify-center">
+      <a href="#lineup" class="font-mono text-sm uppercase tracking-widest bg-gold text-oak-950 px-7 py-4 rounded-sm font-bold hover:bg-gold-light transition">See This Week's Lineup</a>
+      <a href="#events" class="font-mono text-sm uppercase tracking-widest border border-cream/30 text-cream px-7 py-4 rounded-sm font-bold hover:border-gold hover:text-gold transition">Reserve Your Event</a>
+    </div>
+  </div>
+</section>
+
+<!-- FLAVOR WALL (signature element) -->
+<section class="px-5 py-10 border-y border-gold/15 bg-oak-900">
+  <div class="max-w-5xl mx-auto">
+    <p class="font-mono text-xs uppercase tracking-[0.25em] text-gold mb-6 text-center">Flavor of the Month &middot; Peaches &amp; Cream</p>
+    <div class="flex justify-center gap-4 sm:gap-6 flex-wrap">
+      <div class="flavor-dot w-16 h-16 sm:w-20 sm:h-20 rounded-full" style="background:radial-gradient(circle at 35% 30%, #ffd9a0, #ff9d5c);"></div>
+      <div class="flavor-dot w-16 h-16 sm:w-20 sm:h-20 rounded-full" style="background:radial-gradient(circle at 35% 30%, #7fe0f0, #2fb8d4);"></div>
+      <div class="flavor-dot w-16 h-16 sm:w-20 sm:h-20 rounded-full" style="background:radial-gradient(circle at 35% 30%, #ffb3cd, #ff5c8a);"></div>
+      <div class="flavor-dot w-16 h-16 sm:w-20 sm:h-20 rounded-full" style="background:radial-gradient(circle at 35% 30%, #e2f5a0, #c4e558);"></div>
+      <div class="flavor-dot w-16 h-16 sm:w-20 sm:h-20 rounded-full" style="background:radial-gradient(circle at 35% 30%, #cbb0ec, #a06bd8);"></div>
+    </div>
+  </div>
+</section>
+
+<!-- WEEKLY LINEUP -->
+<section id="lineup" class="px-5 py-20">
+  <div class="max-w-6xl mx-auto">
+    <p class="font-mono text-xs uppercase tracking-[0.25em] text-daiq-pink mb-2">The Lineup</p>
+    <h2 class="font-display text-4xl md:text-5xl mb-12">It's Never a Quiet Week</h2>
+    <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-5">
+      <div class="ticket rounded-sm p-6">
+        <p class="font-mono text-xs text-daiq-blue mb-3">SAT &middot; 3PM–UNTIL GONE</p>
+        <h3 class="font-display text-2xl mb-2">Seafood Saturday</h3>
+        <p class="text-cream/70 text-sm">Shrimp, sausage, corn & potatoes with DJ 3stackz spinning 4–7PM.</p>
+      </div>
+      <div class="ticket rounded-sm p-6">
+        <p class="font-mono text-xs text-daiq-pink mb-3">WEEKLY &middot; SIGN UP IN-SHOP</p>
+        <h3 class="font-display text-2xl mb-2">UNO Tournament</h3>
+        <p class="text-cream/70 text-sm">Game night with prizes on the line. Spots fill fast.</p>
+      </div>
+      <div class="ticket rounded-sm p-6">
+        <p class="font-mono text-xs text-daiq-lime mb-3">MONTHLY DRAW</p>
+        <h3 class="font-display text-2xl mb-2">Birthday Raffle</h3>
+        <p class="text-cream/70 text-sm">Buy a 20oz daiquiri, get a shot at winning a full birthday party.</p>
+      </div>
+      <div class="ticket rounded-sm p-6">
+        <p class="font-mono text-xs text-gold mb-3">NEW EVERY MONTH</p>
+        <h3 class="font-display text-2xl mb-2">Daiquiri of the Month</h3>
+        <p class="text-cream/70 text-sm">A new flavor, infused gummies on top, NOLA spirit in every cup.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MENU -->
+<section id="menu" class="px-5 py-20 bg-oak-900 border-y border-gold/15">
+  <div class="max-w-6xl mx-auto">
+    <p class="font-mono text-xs uppercase tracking-[0.25em] text-daiq-lime mb-2">On the Menu</p>
+    <h2 class="font-display text-4xl md:text-5xl mb-12">Wings, Daiquiris &amp; Things</h2>
+    <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div class="bg-oak-800 rounded-sm overflow-hidden border border-gold/10">
+        <div class="photo-frame">
+          <img src="img/wings.jpg" alt="Crispy signature wings" onerror="this.style.display='none'; this.parentElement.innerHTML='<div class=&quot;placeholder-label&quot;>Photo Coming Soon<br>Signature Wings</div>'">
+        </div>
+        <div class="p-5">
+          <h3 class="font-display text-xl mb-1">Signature Wings</h3>
+          <p class="text-cream/70 text-sm">Crispy wings tossed in a rotating lineup of house sauces.</p>
+        </div>
+      </div>
+      <div class="bg-oak-800 rounded-sm overflow-hidden border border-gold/10">
+        <div class="photo-frame">
+          <img src="img/daiquiris.jpg" alt="Frozen daiquiri flavors" onerror="this.style.display='none'; this.parentElement.innerHTML='<div class=&quot;placeholder-label&quot;>Photo Coming Soon<br>Frozen Daiquiris</div>'">
+        </div>
+        <div class="p-5">
+          <h3 class="font-display text-xl mb-1">Frozen Daiquiris</h3>
+          <p class="text-cream/70 text-sm">Rotating flavors, jello shot pairings, infused gummies on top.</p>
+        </div>
+      </div>
+      <div class="bg-oak-800 rounded-sm overflow-hidden border border-gold/10">
+        <div class="photo-frame">
+          <img src="img/boil.jpg" alt="Seafood boil" onerror="this.style.display='none'; this.parentElement.innerHTML='<div class=&quot;placeholder-label&quot;>Photo Coming Soon<br>Seafood Boil</div>'">
+        </div>
+        <div class="p-5">
+          <h3 class="font-display text-xl mb-1">Seafood Boil</h3>
+          <p class="text-cream/70 text-sm">Shrimp, sausage, corn, potatoes & turkey necks — Saturdays.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BOOK YOUR EVENT -->
+<section id="events" class="px-5 py-20">
+  <div class="max-w-4xl mx-auto text-center">
+    <p class="font-mono text-xs uppercase tracking-[0.25em] text-gold mb-2">Private Events</p>
+    <h2 class="font-display text-4xl md:text-5xl mb-6">Book the Trailer for Your Next Thing</h2>
+    <p class="text-cream/70 max-w-xl mx-auto mb-10">Birthdays, cookouts, and collabs — we bring the daiquiris and wings to you. Send us your date and we'll get back to you with pricing.</p>
+    <div class="ticket inline-block rounded-sm px-10 py-8 text-left mx-auto">
+      <p class="font-mono text-xs text-daiq-blue mb-2">EVENT REQUEST</p>
+      <p class="font-display text-2xl mb-4">Ready to Reserve?</p>
+      <a href="https://docs.google.com/forms/d/e/1FAIpQLSe2XDILpDDTI6h9aDiAUACLpvGGyXctw7nS4G2AeakjhvVTjw/viewform?usp=preview" target="_blank" rel="noopener" class="inline-block font-mono text-sm uppercase tracking-widest bg-gold text-oak-950 px-6 py-3 rounded-sm font-bold hover:bg-gold-light transition">Reserve Your Event</a>
+    </div>
+  </div>
+</section>
+
+<!-- VISIT / HOURS -->
+<section id="visit" class="px-5 py-20 bg-oak-900 border-y border-gold/15">
+  <div class="max-w-5xl mx-auto grid md:grid-cols-2 gap-12">
+    <div>
+      <p class="font-mono text-xs uppercase tracking-[0.25em] text-daiq-pink mb-2">Find Us</p>
+      <h2 class="font-display text-4xl mb-6">On the Westbank</h2>
+      <p class="text-cream/80 mb-1">3637 General De Gaulle Drive</p>
+      <p class="text-cream/80 mb-6">New Orleans, LA 70114</p>
+      <p class="font-mono text-xs uppercase tracking-widest text-gold mb-2">Hours</p>
+      <ul class="text-cream/70 text-sm space-y-1 font-mono">
+        <li>Mon–Thu: 12PM – 10PM</li>
+        <li>Fri: 12PM – 11PM</li>
+        <li>Sat: 11AM – 11PM</li>
+        <li>Sun: 11AM – 10PM</li>
+      </ul>
+    </div>
+    <div class="ticket rounded-sm p-8">
+      <p class="font-mono text-xs text-daiq-lime mb-2">WE'RE HIRING</p>
+      <h3 class="font-display text-2xl mb-3">Become a Team Member</h3>
+      <p class="text-cream/70 text-sm mb-5">Join the crew slinging daiquiris and wings on General De Gaulle. Reach out and let's talk.</p>
+      <a href="#visit" class="font-mono text-xs uppercase tracking-widest border border-gold text-gold px-5 py-3 rounded-sm inline-block hover:bg-gold hover:text-oak-950 transition">Get In Touch</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="px-5 py-10 text-center">
+  <p class="font-display text-xl text-gold mb-2">BOURBON DAIQUIRIS WINGS &amp; THINGS</p>
+  <p class="font-mono text-xs text-cream/50">3637 General De Gaulle Drive, New Orleans, LA 70114</p>
+</footer>
+
+</body>
+</html>
