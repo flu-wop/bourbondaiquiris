@@ -16,7 +16,7 @@
           oak: { 950: '#170d07', 900: '#241205', 800: '#3a1c0c', 700: '#4a2410' },
           gold: { DEFAULT: '#d4a24c', light: '#e8c586' },
           cream: '#f7ecd9',
-          daiq: { blue: '#2fb8d4', pink: '#ff5c8a', lime: '#c4e558', purple: '#a06bd8' }
+          mardi: { purple: '#7B2D8E', green: '#00843D' }
         },
         fontFamily: {
           display: ['Anton', 'sans-serif'],
@@ -34,10 +34,10 @@
     background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
   }
   .swirl-bg {
-    background: radial-gradient(circle at 20% 30%, rgba(47,184,212,0.25), transparent 45%),
-                radial-gradient(circle at 80% 20%, rgba(255,92,138,0.22), transparent 45%),
-                radial-gradient(circle at 60% 80%, rgba(196,229,88,0.15), transparent 45%),
-                radial-gradient(circle at 10% 90%, rgba(160,107,216,0.18), transparent 45%);
+    background: radial-gradient(circle at 20% 30%, rgba(123,45,142,0.30), transparent 45%),
+                radial-gradient(circle at 80% 20%, rgba(0,132,61,0.24), transparent 45%),
+                radial-gradient(circle at 60% 80%, rgba(212,162,76,0.18), transparent 45%),
+                radial-gradient(circle at 10% 90%, rgba(123,45,142,0.20), transparent 45%);
   }
   .ticket {
     background: #241205;
@@ -85,10 +85,10 @@
 <!-- HERO -->
 <section class="relative swirl-bg pt-32 pb-24 px-5 overflow-hidden">
   <div class="max-w-5xl mx-auto text-center relative z-10">
-    <p class="font-mono text-xs uppercase tracking-[0.3em] text-daiq-lime mb-5">Westbank &middot; New Orleans, LA</p>
+    <p class="font-mono text-xs uppercase tracking-[0.3em] text-gold mb-5">Westbank &middot; New Orleans, LA</p>
     <h1 class="font-display text-5xl sm:text-7xl md:text-8xl leading-[0.95] mb-6">
       LET'S MAKE<br>
-      <span class="text-transparent bg-clip-text bg-gradient-to-r from-daiq-blue via-daiq-pink to-daiq-lime">POUR DECISIONS</span>
+      <span class="text-transparent bg-clip-text bg-gradient-to-r from-mardi-purple via-mardi-green to-gold">POUR DECISIONS</span>
     </h1>
     <p class="font-body text-cream/80 text-lg max-w-xl mx-auto mb-10">
       Frozen daiquiris, crispy wings, and seafood boils — served curbside on General De Gaulle Drive, every single day of the week.
@@ -106,10 +106,10 @@
     <p class="font-mono text-xs uppercase tracking-[0.25em] text-gold mb-6 text-center">Flavor of the Month &middot; Peaches &amp; Cream</p>
     <div class="flex justify-center gap-4 sm:gap-6 flex-wrap">
       <div class="flavor-dot w-16 h-16 sm:w-20 sm:h-20 rounded-full" style="background:radial-gradient(circle at 35% 30%, #ffd9a0, #ff9d5c);"></div>
-      <div class="flavor-dot w-16 h-16 sm:w-20 sm:h-20 rounded-full" style="background:radial-gradient(circle at 35% 30%, #7fe0f0, #2fb8d4);"></div>
-      <div class="flavor-dot w-16 h-16 sm:w-20 sm:h-20 rounded-full" style="background:radial-gradient(circle at 35% 30%, #ffb3cd, #ff5c8a);"></div>
-      <div class="flavor-dot w-16 h-16 sm:w-20 sm:h-20 rounded-full" style="background:radial-gradient(circle at 35% 30%, #e2f5a0, #c4e558);"></div>
-      <div class="flavor-dot w-16 h-16 sm:w-20 sm:h-20 rounded-full" style="background:radial-gradient(circle at 35% 30%, #cbb0ec, #a06bd8);"></div>
+      <div class="flavor-dot w-16 h-16 sm:w-20 sm:h-20 rounded-full" style="background:radial-gradient(circle at 35% 30%, #c56bd6, #7B2D8E);"></div>
+      <div class="flavor-dot w-16 h-16 sm:w-20 sm:h-20 rounded-full" style="background:radial-gradient(circle at 35% 30%, #4fd98a, #00843D);"></div>
+      <div class="flavor-dot w-16 h-16 sm:w-20 sm:h-20 rounded-full" style="background:radial-gradient(circle at 35% 30%, #f0d28a, #d4a24c);"></div>
+      <div class="flavor-dot w-16 h-16 sm:w-20 sm:h-20 rounded-full" style="background:radial-gradient(circle at 35% 30%, #cbb0ec, #7B2D8E);"></div>
     </div>
   </div>
 </section>
@@ -117,21 +117,21 @@
 <!-- WEEKLY LINEUP -->
 <section id="lineup" class="px-5 py-20">
   <div class="max-w-6xl mx-auto">
-    <p class="font-mono text-xs uppercase tracking-[0.25em] text-daiq-pink mb-2">The Lineup</p>
+    <p class="font-mono text-xs uppercase tracking-[0.25em] text-mardi-green mb-2">The Lineup</p>
     <h2 class="font-display text-4xl md:text-5xl mb-12">It's Never a Quiet Week</h2>
     <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-5">
       <div class="ticket rounded-sm p-6">
-        <p class="font-mono text-xs text-daiq-blue mb-3">SAT &middot; 3PM–UNTIL GONE</p>
+        <p class="font-mono text-xs text-mardi-purple mb-3">SAT &middot; 3PM–UNTIL GONE</p>
         <h3 class="font-display text-2xl mb-2">Seafood Saturday</h3>
         <p class="text-cream/70 text-sm">Shrimp, sausage, corn & potatoes with DJ 3stackz spinning 4–7PM.</p>
       </div>
       <div class="ticket rounded-sm p-6">
-        <p class="font-mono text-xs text-daiq-pink mb-3">WEEKLY &middot; SIGN UP IN-SHOP</p>
+        <p class="font-mono text-xs text-mardi-green mb-3">WEEKLY &middot; SIGN UP IN-SHOP</p>
         <h3 class="font-display text-2xl mb-2">UNO Tournament</h3>
         <p class="text-cream/70 text-sm">Game night with prizes on the line. Spots fill fast.</p>
       </div>
       <div class="ticket rounded-sm p-6">
-        <p class="font-mono text-xs text-daiq-lime mb-3">MONTHLY DRAW</p>
+        <p class="font-mono text-xs text-gold mb-3">MONTHLY DRAW</p>
         <h3 class="font-display text-2xl mb-2">Birthday Raffle</h3>
         <p class="text-cream/70 text-sm">Buy a 20oz daiquiri, get a shot at winning a full birthday party.</p>
       </div>
@@ -147,7 +147,7 @@
 <!-- MENU -->
 <section id="menu" class="px-5 py-20 bg-oak-900 border-y border-gold/15">
   <div class="max-w-6xl mx-auto">
-    <p class="font-mono text-xs uppercase tracking-[0.25em] text-daiq-lime mb-2">On the Menu</p>
+    <p class="font-mono text-xs uppercase tracking-[0.25em] text-gold mb-2">On the Menu</p>
     <h2 class="font-display text-4xl md:text-5xl mb-12">Wings, Daiquiris &amp; Things</h2>
     <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
       <div class="bg-oak-800 rounded-sm overflow-hidden border border-gold/10">
@@ -188,7 +188,7 @@
     <h2 class="font-display text-4xl md:text-5xl mb-6">Book the Trailer for Your Next Thing</h2>
     <p class="text-cream/70 max-w-xl mx-auto mb-10">Birthdays, cookouts, and collabs — we bring the daiquiris and wings to you. Send us your date and we'll get back to you with pricing.</p>
     <div class="ticket inline-block rounded-sm px-10 py-8 text-left mx-auto">
-      <p class="font-mono text-xs text-daiq-blue mb-2">EVENT REQUEST</p>
+      <p class="font-mono text-xs text-mardi-purple mb-2">EVENT REQUEST</p>
       <p class="font-display text-2xl mb-4">Ready to Reserve?</p>
       <a href="https://docs.google.com/forms/d/e/1FAIpQLSe2XDILpDDTI6h9aDiAUACLpvGGyXctw7nS4G2AeakjhvVTjw/viewform?usp=preview" target="_blank" rel="noopener" class="inline-block font-mono text-sm uppercase tracking-widest bg-gold text-oak-950 px-6 py-3 rounded-sm font-bold hover:bg-gold-light transition">Reserve Your Event</a>
     </div>
@@ -199,7 +199,7 @@
 <section id="visit" class="px-5 py-20 bg-oak-900 border-y border-gold/15">
   <div class="max-w-5xl mx-auto grid md:grid-cols-2 gap-12">
     <div>
-      <p class="font-mono text-xs uppercase tracking-[0.25em] text-daiq-pink mb-2">Find Us</p>
+      <p class="font-mono text-xs uppercase tracking-[0.25em] text-mardi-green mb-2">Find Us</p>
       <h2 class="font-display text-4xl mb-6">On the Westbank</h2>
       <p class="text-cream/80 mb-1">3637 General De Gaulle Drive</p>
       <p class="text-cream/80 mb-6">New Orleans, LA 70114</p>
@@ -212,7 +212,7 @@
       </ul>
     </div>
     <div class="ticket rounded-sm p-8">
-      <p class="font-mono text-xs text-daiq-lime mb-2">WE'RE HIRING</p>
+      <p class="font-mono text-xs text-gold mb-2">WE'RE HIRING</p>
       <h3 class="font-display text-2xl mb-3">Become a Team Member</h3>
       <p class="text-cream/70 text-sm mb-5">Join the crew slinging daiquiris and wings on General De Gaulle. Reach out and let's talk.</p>
       <a href="#visit" class="font-mono text-xs uppercase tracking-widest border border-gold text-gold px-5 py-3 rounded-sm inline-block hover:bg-gold hover:text-oak-950 transition">Get In Touch</a>
