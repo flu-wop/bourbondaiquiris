@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Bourbon Daiquiris Wings &amp; Things | Westbank, New Orleans</title>
 <meta name="description" content="Frozen daiquiris, wings, and seafood boils at 3637 General De Gaulle Drive. Let's make pour decisions.">
-<meta name="theme-color" content="#090909">
+<meta name="theme-color" content="#801aae">
 <meta property="og:title" content="Bourbon Daiquiris Wings &amp; Things">
 <meta property="og:description" content="Frozen daiquiris, wings, and seafood boils on the Westbank. Let's make pour decisions.">
 <meta property="og:image" content="https://bourbondaiquiris.vercel.app/img/hero-bottles.jpg">
@@ -13,7 +13,7 @@
 <link rel="icon" type="image/png" href="img/favicon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&family=DM+Mono:wght@400;500&family=Anton&display=swap" rel="stylesheet">
 <style>
   /* IN-FLU-ENTIAL shared tokens, with the client's purple and Mardi Gras green as a small accent layer */
   :root {
@@ -28,8 +28,10 @@
     --cream: #f5edd8;
     --mist: #a89880;
     --purple: #801aae;
+    --purple-light: #b84ee6;
     --green: #6be24f;
     --gutter: clamp(20px, 5vw, 64px);
+    --loud: 'Anton', Impact, 'Arial Narrow', sans-serif;
     --display: 'Cormorant Garamond', Georgia, serif;
     --body: 'DM Sans', system-ui, sans-serif;
     --mono: 'DM Mono', ui-monospace, monospace;
@@ -47,8 +49,8 @@
 
   .wrap { width: min(1180px, 100% - 2 * var(--gutter)); margin-inline: auto; }
   .sec { padding: clamp(72px, 10vw, 128px) 0; border-top: 1px solid var(--border); }
-  h2 { font: 300 clamp(2.4rem, 5.2vw, 4rem)/1.04 var(--display); color: var(--cream); margin-bottom: .45em; letter-spacing: -.01em; }
-  h2 em, h1 em { font-style: italic; font-weight: 400; color: var(--gold); }
+  h2 { font: 400 clamp(2.3rem, 5vw, 3.9rem)/1 var(--loud); text-transform: uppercase; color: var(--cream); margin-bottom: .5em; letter-spacing: .01em; }
+  h2 em { font: italic 400 1.14em/1 var(--display); text-transform: none; letter-spacing: -.01em; color: var(--gold); }
   h3 { font: 600 1.45rem/1.15 var(--display); }
   .lede { max-width: 48ch; color: var(--mist); font-size: 1.12rem; }
   .fine { font-size: .9rem; color: var(--mist); margin-top: 14px; }
@@ -62,18 +64,19 @@
   .btn--sm { min-height: 42px; padding: 0 18px; }
 
   /* header */
-  .bar { position: sticky; top: 0; z-index: 50; background: rgba(9, 9, 9, .88); backdrop-filter: blur(10px); border-bottom: 1px solid rgba(212, 175, 119, .2); }
+  .bar { position: sticky; top: 0; z-index: 50; background: var(--purple); border-bottom: 3px solid var(--gold); }
   .bar__in { display: flex; align-items: center; justify-content: space-between; gap: 24px; height: 76px; }
   .bar__logo img { height: 56px; width: auto; }
   .bar nav { display: flex; gap: 32px; font-size: .95rem; font-weight: 500; }
-  .bar nav a { text-decoration: none; color: var(--mist); transition: color .15s; }
-  .bar nav a:hover { color: var(--gold); }
+  .bar nav a { text-decoration: none; color: var(--cream); transition: color .15s; }
+  .bar nav a:hover { color: var(--gold-light); text-decoration: underline; text-underline-offset: 6px; }
 
   /* hero */
-  .hero { position: relative; overflow: hidden; background: radial-gradient(760px 560px at 74% 46%, rgba(128, 26, 174, .42), transparent 72%), var(--black); }
+  .hero { position: relative; overflow: hidden; background: radial-gradient(520px 420px at 12% 18%, rgba(128, 26, 174, .5), transparent 70%), radial-gradient(520px 420px at 92% 12%, rgba(0, 132, 61, .38), transparent 70%), radial-gradient(640px 480px at 70% 92%, rgba(212, 175, 119, .22), transparent 70%), radial-gradient(520px 420px at 6% 96%, rgba(128, 26, 174, .35), transparent 70%), var(--black); }
   .hero::before { content: ""; position: absolute; inset: 0; background: radial-gradient(ellipse at center, transparent 55%, rgba(0, 0, 0, .65)); pointer-events: none; }
   .hero__in { position: relative; display: grid; grid-template-columns: .9fr 1.1fr; gap: clamp(28px, 5vw, 72px); align-items: center; min-height: calc(100svh - 76px); padding: 56px 0 64px; }
-  .hero h1 { font: 300 clamp(3.2rem, 6.6vw, 6rem)/.96 var(--display); letter-spacing: -.02em; margin-bottom: .32em; }
+  .hero h1 { font: 400 clamp(3.4rem, 8.2vw, 7.4rem)/.92 var(--loud); text-transform: uppercase; letter-spacing: .005em; margin-bottom: .3em; }
+  .hero h1 .grad { display: block; background: linear-gradient(90deg, var(--purple-light), var(--green) 55%, var(--gold-light)); -webkit-background-clip: text; background-clip: text; color: transparent; padding-bottom: .06em; }
   .hero .lead { max-width: 36ch; font-size: 1.2rem; color: var(--mist); }
   .hero__cta { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 32px; }
   .status { display: inline-flex; align-items: center; gap: 10px; margin-top: 30px; font: 400 .85rem var(--mono); color: var(--mist); letter-spacing: .02em; }
@@ -82,7 +85,10 @@
   .hero__photo { position: relative; }
   .hero__photo::before { content: ""; position: absolute; inset: 16px -16px -16px 16px; border: 1px solid var(--gold-dark); opacity: .55; }
   .hero__photo img { position: relative; width: 100%; aspect-ratio: 3 / 2; object-fit: cover; box-shadow: 0 30px 80px rgba(0, 0, 0, .6); }
-  .ticket { position: absolute; left: -28px; bottom: -34px; z-index: 2; width: min(300px, 78%); padding: 16px 18px; background: rgba(17, 17, 17, .94); border: 1px solid rgba(212, 175, 119, .4); box-shadow: 0 18px 40px rgba(0, 0, 0, .55); font-family: var(--mono); font-size: .76rem; line-height: 1.5; color: var(--mist); }
+  .ticket { position: absolute; left: -30px; top: -34px; z-index: 2; width: min(300px, 78%); padding: 16px 22px; background: #1a1a1a; border: 1px dashed rgba(212, 175, 119, .65); box-shadow: 0 18px 40px rgba(0, 0, 0, .55); font-family: var(--mono); font-size: .76rem; line-height: 1.5; color: var(--mist); }
+  .ticket::before, .ticket::after { content: ''; position: absolute; top: 50%; width: 16px; height: 16px; margin-top: -8px; border-radius: 50%; background: var(--black); }
+  .ticket::before { left: -9px; }
+  .ticket::after { right: -9px; }
   .ticket b { display: block; font: 600 1.15rem/1.2 var(--display); color: var(--cream); margin: 2px 0 6px; }
   .ticket .row { display: flex; justify-content: space-between; gap: 12px; border-top: 1px dashed var(--border); padding-top: 8px; margin-top: 8px; }
   .ticket .row span:last-child { color: var(--green); }
@@ -92,6 +98,13 @@
   .hero__txt > :nth-child(3) { animation-delay: .16s; }
   .hero__txt > :nth-child(4) { animation-delay: .24s; }
   .hero__photo { animation: rise 1s .15s cubic-bezier(.2, .7, .2, 1) both; }
+
+  /* flavor dots */
+  .dots { background: var(--dark); border-block: 1px solid var(--border); padding: 36px 0 32px; text-align: center; }
+  .dots__row { display: flex; justify-content: center; flex-wrap: wrap; gap: clamp(12px, 2.4vw, 28px); }
+  .dot { width: clamp(52px, 8vw, 78px); aspect-ratio: 1; border-radius: 50%; border: 0; padding: 0; cursor: pointer; background: radial-gradient(circle at 35% 30%, rgba(255, 255, 255, .55), transparent 38%), var(--c); box-shadow: 0 10px 24px rgba(0, 0, 0, .5), inset 0 -6px 0 rgba(0, 0, 0, .18); transition: transform .35s ease; }
+  .dot:hover, .dot:focus-visible { transform: scale(1.14) rotate(8deg); }
+  .dots p { margin-top: 20px; font: 400 .8rem var(--mono); letter-spacing: .1em; text-transform: uppercase; color: var(--mist); }
 
   /* cup builder */
   .mix { background: var(--charcoal); }
@@ -128,7 +141,7 @@
   .board { background: var(--charcoal); }
   .board__grid { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(40px, 6vw, 88px); margin-top: 52px; align-items: start; }
   .board__col > section + section { margin-top: 48px; }
-  .rib { font: italic 600 1.7rem/1 var(--display); color: var(--gold); padding-bottom: 12px; margin-bottom: 20px; border-bottom: 1px solid rgba(212, 175, 119, .35); }
+  .rib { display: inline-block; font: 400 1.25rem/1 var(--loud); letter-spacing: .04em; text-transform: uppercase; color: var(--black); padding: .5em 1em .45em; margin-bottom: 20px; border-radius: 2px; background: linear-gradient(90deg, #46c93a, var(--gold-light)); }
   .menu { display: grid; gap: 14px; }
   .menu--2 { grid-template-columns: 1fr 1fr; column-gap: 28px; }
   .menu b { display: block; font-weight: 500; }
@@ -147,19 +160,30 @@
 
   /* nights */
   .nights { background: var(--charcoal); }
-  .nights__in { display: grid; grid-template-columns: minmax(260px, 440px) 1fr; gap: clamp(32px, 6vw, 88px); align-items: start; }
-  .nights__in > figure { position: sticky; top: 100px; }
-  .nights__in > figure img { width: 100%; border: 1px solid var(--border); }
-  .night { padding: 22px 0; border-top: 1px solid var(--border); }
-  .night p { color: var(--mist); max-width: 52ch; margin-top: 4px; }
-  .nights__photo { margin-top: 36px; max-width: 560px; }
-  .nights__photo img { width: 100%; border: 1px solid var(--border); }
-  .nights__photo figcaption { margin-top: 10px; font: 400 .78rem var(--mono); color: var(--mist); }
+  .tix { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; margin-top: 44px; }
+  .tk { position: relative; padding: 26px 24px 24px; background: var(--dark); border: 1px dashed rgba(212, 175, 119, .5); transition: transform .25s; }
+  .tk:hover { transform: translateY(-4px) rotate(-.6deg); }
+  .tk::before, .tk::after { content: ''; position: absolute; top: 50%; width: 18px; height: 18px; margin-top: -9px; border-radius: 50%; background: var(--charcoal); }
+  .tk::before { left: -10px; }
+  .tk::after { right: -10px; }
+  .tk .tag { font: 500 .74rem var(--mono); letter-spacing: .08em; text-transform: uppercase; margin-bottom: 12px; }
+  .tk:nth-child(1) .tag { color: var(--purple-light); }
+  .tk:nth-child(2) .tag { color: var(--green); }
+  .tk:nth-child(3) .tag { color: var(--gold); }
+  .tk:nth-child(4) .tag { color: var(--purple-light); }
+  .tk h3 { font: 400 1.7rem/1.05 var(--loud); text-transform: uppercase; letter-spacing: .01em; margin-bottom: 8px; }
+  .tk p { color: var(--mist); font-size: .95rem; }
+  .nights__pics { display: grid; grid-template-columns: minmax(220px, 340px) 1fr; gap: 24px; margin-top: 56px; align-items: start; }
+  .nights__pics img { width: 100%; border: 1px solid var(--border); }
+  .nights__pics figcaption { margin-top: 10px; font: 400 .78rem var(--mono); color: var(--mist); }
 
   /* book */
-  .book { background: radial-gradient(640px 420px at 85% 50%, rgba(128, 26, 174, .3), transparent 70%), var(--black); }
+  .book { background: var(--purple); border-top: 3px solid var(--gold); border-bottom: 3px solid var(--gold); }
+  .book h2 em { color: var(--gold-light); }
+  .book .fine { color: rgba(245, 237, 216, .85); }
+  .book__photos img { border-color: rgba(245, 237, 216, .5) !important; }
   .book__in { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(32px, 6vw, 88px); align-items: center; }
-  .book .lede { margin-bottom: 28px; }
+  .book .lede { margin-bottom: 28px; color: var(--cream); }
   .book__photos { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; align-items: start; }
   .book__photos img { width: 100%; border: 1px solid var(--border); }
   .book__photos img:last-child { margin-top: 44px; }
@@ -228,12 +252,12 @@
   .demo-note { color: var(--mist); font-size: .88rem; margin-top: 14px; }
   .sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
 
-  footer { padding: 44px 0 52px; color: var(--mist); font-size: .92rem; border-top: 1px solid rgba(212, 175, 119, .25); background: var(--black); }
+  footer { padding: 44px 0 52px; color: var(--mist); font-size: .92rem; border-top: 6px solid; border-image: linear-gradient(90deg, var(--purple) 0 33%, var(--green) 33% 66%, var(--gold) 66%) 1; background: var(--black); }
   footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: baseline; gap: 8px 24px; }
   footer .sig { font: italic 400 1.5rem var(--display); color: var(--gold); }
 
   @media (max-width: 960px) {
-    .food__grid { grid-template-columns: 1fr 1fr; }
+    .food__grid, .tix { grid-template-columns: 1fr 1fr; }
   }
   @media (max-width: 860px) {
     .bar nav { display: none; }
@@ -247,7 +271,8 @@
     .mix__in .result { order: 2; margin: 20px 0 4px; min-height: 5.5rem; }
     .mix__in #flavors { order: 3; }
     .mix__in .buy { order: 4; }
-    .nights__in > figure { max-width: 420px; position: static; }
+    .nights__pics { grid-template-columns: 1fr; }
+    .nights__pics figure:first-child { max-width: 340px; }
     .visit__photo { order: -1; max-width: 420px; position: static; }
   }
   @media (max-width: 700px) {
@@ -256,7 +281,7 @@
   }
   @media (max-width: 520px) {
     .menu--2 { grid-template-columns: 1fr; }
-    .food__grid { grid-template-columns: 1fr; }
+    .food__grid, .tix { grid-template-columns: 1fr; }
     .ph { aspect-ratio: 16 / 9; }
   }
   @media (prefers-reduced-motion: reduce) {
@@ -271,7 +296,7 @@
 <header class="bar">
   <div class="wrap bar__in">
     <a class="bar__logo" href="#top" aria-label="Bourbon Daiquiris Wings and Things, back to top">
-      <img src="img/logo.png" width="945" height="365" alt="Bourbon Daiquiris Wings and Things">
+      <img src="img/logo.jpg" width="945" height="365" alt="Bourbon Daiquiris Wings and Things">
     </a>
     <nav aria-label="Main">
       <a href="#mixer">Build your cup</a>
@@ -280,7 +305,7 @@
       <a href="#nights">Nights</a>
       <a href="#visit">Visit</a>
     </nav>
-    <button type="button" class="btn btn--line btn--sm" id="cartBtn">Cart <span class="badge" id="badge" hidden>0</span></button>
+    <button type="button" class="btn btn--gold btn--sm" id="cartBtn">Cart <span class="badge" id="badge" hidden>0</span></button>
   </div>
 </header>
 
@@ -289,7 +314,7 @@
 <section class="hero" id="top">
   <div class="wrap hero__in">
     <div class="hero__txt">
-      <h1>Let&rsquo;s make <em>pour</em> decisions.</h1>
+      <h1>Let&rsquo;s make <span class="grad">pour decisions.</span></h1>
       <p class="lead">Frozen daiquiris poured off a wall of machines, with wings, Saturday seafood, karaoke and Giant UNO on the side.</p>
       <div>
         <div class="hero__cta">
@@ -312,6 +337,13 @@
   </div>
 </section>
 
+<section class="dots" aria-label="Pick a flavor to start your cup">
+  <div class="wrap">
+    <div class="dots__row" id="dots"></div>
+    <p>Tap a flavor to start your cup</p>
+  </div>
+</section>
+
 <section class="sec mix" id="mixer">
   <div class="wrap mix__in">
     <svg class="cup" id="cup" viewBox="0 0 220 340" role="img" aria-label="A cup of frozen daiquiri in the flavors you pick">
@@ -330,8 +362,8 @@
       </g>
       <path d="M44 128H176L160 318Q159 330 147 330H73Q61 330 60 318Z" fill="url(#cupGrad)"/>
       <g clip-path="url(#cupClip)"><rect x="40" y="200" width="140" height="54" fill="#6d1b94"/></g>
-      <text x="110" y="228" text-anchor="middle" font-family="Cormorant Garamond, serif" font-weight="600" font-size="22" fill="#6be24f">Bourbon</text>
-      <text x="110" y="246" text-anchor="middle" font-family="Cormorant Garamond, serif" font-style="italic" font-size="16" fill="#d4af77">Daiquiris</text>
+      <text x="110" y="228" text-anchor="middle" font-family="Anton, Impact, sans-serif" font-size="22" letter-spacing="1" fill="#6be24f">BOURBON</text>
+      <text x="110" y="246" text-anchor="middle" font-family="Cormorant Garamond, serif" font-style="italic" font-size="17" fill="#e8c97a">Daiquiris</text>
     </svg>
     <div>
       <h2>Pick two. We&rsquo;ll name the <em>pour</em>.</h2>
@@ -502,31 +534,37 @@
 </section>
 
 <section class="sec nights" id="nights">
-  <div class="wrap nights__in">
-    <figure>
-      <img src="img/trophy.jpg" width="1200" height="1600" loading="lazy" decoding="async" alt="A gold microphone trophy reading Essence Fest 2026 Karaoke Champions, in front of a neon sign">
-    </figure>
-    <div>
-      <h2>It&rsquo;s never a quiet <em>week</em></h2>
-      <div>
-        <div class="night">
-          <h3>Seafood Saturday</h3>
-          <p>From 3pm until it&rsquo;s gone: shrimp, sausage, corn and potatoes. DJ 3stackz spins 4 to 7.</p>
-        </div>
-        <div class="night">
-          <h3>Karaoke</h3>
-          <p>Yes, we&rsquo;re the Essence Fest 2026 karaoke champions. Come take a swing at the mic.</p>
-        </div>
-        <div class="night">
-          <h3>UNO tournament</h3>
-          <p>Game night with prizes on the line. Sign up in the shop; spots fill fast.</p>
-        </div>
-        <div class="night">
-          <h3>Birthday raffle</h3>
-          <p>Every month. Buy a 20 oz daiquiri for a shot at winning a full birthday party.</p>
-        </div>
+  <div class="wrap">
+    <h2>It&rsquo;s never a quiet <em>week</em></h2>
+    <p class="lede">Pick your night. There&rsquo;s a ticket for each one.</p>
+    <div class="tix">
+      <div class="tk">
+        <p class="tag">Sat &middot; 3pm until it&rsquo;s gone</p>
+        <h3>Seafood Saturday</h3>
+        <p>Shrimp, sausage, corn and potatoes. DJ 3stackz spins 4 to 7.</p>
       </div>
-      <figure class="nights__photo">
+      <div class="tk">
+        <p class="tag">Essence Fest 2026 champs</p>
+        <h3>Karaoke</h3>
+        <p>Yes, we&rsquo;re the reigning karaoke champions. Come take a swing at the mic.</p>
+      </div>
+      <div class="tk">
+        <p class="tag">Sign up in the shop</p>
+        <h3>UNO tournament</h3>
+        <p>Game night with prizes on the line. Spots fill fast.</p>
+      </div>
+      <div class="tk">
+        <p class="tag">Monthly draw</p>
+        <h3>Birthday raffle</h3>
+        <p>Buy a 20 oz daiquiri for a shot at winning a full birthday party.</p>
+      </div>
+    </div>
+    <div class="nights__pics">
+      <figure>
+        <img src="img/trophy.jpg" width="1200" height="1600" loading="lazy" decoding="async" alt="A gold microphone trophy reading Essence Fest 2026 Karaoke Champions, in front of a neon sign">
+        <figcaption>Essence Fest 2026 karaoke champions.</figcaption>
+      </figure>
+      <figure>
         <img src="img/karaoke.jpg" width="1179" height="651" loading="lazy" decoding="async" alt="Two people singing karaoke in the shop while a friend films">
         <figcaption>Karaoke night in the shop.</figcaption>
       </figure>
@@ -717,6 +755,18 @@
     out.appendChild(big); out.appendChild(small);
   }
   render();
+
+  var dotsBox = document.getElementById('dots');
+  FLAVORS.filter(function (f) { return f.g === 0; }).forEach(function (f) {
+    var d = document.createElement('button');
+    d.type = 'button'; d.className = 'dot'; d.style.setProperty('--c', f.c);
+    d.setAttribute('aria-label', 'Start a cup with ' + f.n); d.title = f.n;
+    d.addEventListener('click', function () {
+      if (sel.indexOf(f.id) < 0) toggle(f.id);
+      document.getElementById('mixer').scrollIntoView({ behavior: 'smooth' });
+    });
+    dotsBox.appendChild(d);
+  });
 
   /* ---- mock cart + checkout (demo only: nothing is charged or sent) ---- */
   // Placeholder demo prices (cups are guesses; food prices are from the original build). Confirm with the owner.
