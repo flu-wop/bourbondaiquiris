@@ -4,451 +4,281 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Bourbon Daiquiris Wings & Things | Westbank, New Orleans</title>
-<meta name="description" content="Let's make POUR decisions. Frozen daiquiris, wings & seafood boils on General De Gaulle Drive, New Orleans.">
+<meta name="description" content="Frozen daiquiris, wings, and seafood boils at 3637 General De Gaulle Drive. Let's make pour decisions.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Anton&family=Manrope:wght@400;500;600;700;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <script src="https://cdn.tailwindcss.com"></script>
 <script>
   tailwind.config = {
     theme: {
       extend: {
         colors: {
-          oak: { 950: '#170d07', 900: '#241205', 800: '#3a1c0c', 700: '#4a2410' },
-          gold: { DEFAULT: '#d4a24c', light: '#e8c586' },
-          cream: '#f7ecd9',
-          mardi: { purple: '#7B2D8E', green: '#00843D' }
+          paper: '#f4efe6',
+          ink: '#1a120c',
+          cherry: '#c1121f',
+          cherryDark: '#8e0d16'
         },
         fontFamily: {
           display: ['Anton', 'sans-serif'],
-          body: ['Manrope', 'sans-serif'],
-          mono: ['Space Mono', 'monospace']
+          body: ['Manrope', 'sans-serif']
         }
       }
     }
   }
 </script>
 <style>
-  body { background: #170d07; }
-  .grain::before {
-    content: ''; position: fixed; inset: 0; pointer-events: none; z-index: 1; opacity: 0.05;
-    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
-  }
-  .swirl-bg {
-    background: radial-gradient(circle at 20% 30%, rgba(123,45,142,0.30), transparent 45%),
-                radial-gradient(circle at 80% 20%, rgba(0,132,61,0.24), transparent 45%),
-                radial-gradient(circle at 60% 80%, rgba(212,162,76,0.18), transparent 45%),
-                radial-gradient(circle at 10% 90%, rgba(123,45,142,0.20), transparent 45%);
-  }
-  .ticket {
-    background: #241205;
-    border: 1px dashed #d4a24c66;
-    position: relative;
-  }
-  .ticket::before, .ticket::after {
-    content: ''; position: absolute; width: 16px; height: 16px; background: #170d07; border-radius: 50%;
-    top: 50%; transform: translateY(-50%);
-  }
-  .ticket::before { left: -9px; }
-  .ticket::after { right: -9px; }
-  .flavor-dot {
-    transition: transform 0.4s ease;
-  }
-  .flavor-dot:hover { transform: scale(1.15) rotate(8deg); }
-  .photo-frame {
-    aspect-ratio: 4/3; overflow: hidden; background: #3a1c0c;
-    display: flex; align-items: center; justify-content: center;
-  }
-  .photo-frame img { width: 100%; height: 100%; object-fit: cover; }
-  .placeholder-label {
-    color: #d4a24c; font-family: 'Space Mono', monospace; font-size: 0.7rem; text-align: center; padding: 1rem;
-    letter-spacing: 0.05em; text-transform: uppercase;
-  }
   html { scroll-behavior: smooth; }
+  body { background: #f4efe6; color: #1a120c; }
+  .scrim { background: linear-gradient(180deg, rgba(26,18,12,0.25) 0%, rgba(26,18,12,0.72) 100%); }
+  .flavor img { transition: transform .45s ease; }
+  .flavor:hover img { transform: scale(1.04); }
 </style>
 </head>
-<body class="grain bg-oak-950 text-cream font-body">
+<body class="font-body antialiased">
 
-<!-- NAV -->
-<nav class="fixed top-0 w-full z-50 bg-oak-950/90 backdrop-blur border-b border-gold/20">
-  <div class="max-w-6xl mx-auto px-5 py-3 flex items-center justify-between">
-    <span class="font-display text-lg tracking-wide text-gold">BOURBON DAIQUIRIS</span>
-    <div class="hidden md:flex gap-7 font-mono text-xs uppercase tracking-widest text-cream/80">
-      <a href="#lineup" class="hover:text-gold transition">This Week</a>
-      <a href="#menu" class="hover:text-gold transition">Menu</a>
-      <a href="#order" class="hover:text-gold transition">Order</a>
-      <a href="#events" class="hover:text-gold transition">Book an Event</a>
-      <a href="#visit" class="hover:text-gold transition">Visit</a>
+<nav class="sticky top-0 z-50 bg-paper/95 backdrop-blur border-b border-ink/10">
+  <div class="max-w-6xl mx-auto px-5 h-16 flex items-center justify-between">
+    <a href="#top" class="flex items-center gap-3">
+      <img src="img/IMG_6802.jpg" alt="Bourbon Daiquiris Wings and Things" class="h-11 w-11 rounded-full object-cover border border-ink/10">
+      <span class="font-display tracking-wide text-lg leading-none hidden sm:block">BOURBON<br>DAIQUIRIS</span>
+    </a>
+    <div class="hidden md:flex gap-7 text-sm font-semibold">
+      <a href="#flavors" class="hover:text-cherry">Flavors</a>
+      <a href="#menu" class="hover:text-cherry">Menu</a>
+      <a href="#events" class="hover:text-cherry">This Week</a>
+      <a href="#visit" class="hover:text-cherry">Visit</a>
     </div>
-    <div class="flex items-center gap-3">
-      <button onclick="openCart()" class="relative font-mono text-xs uppercase tracking-widest border border-gold/40 text-gold px-3 py-2 rounded-sm hover:bg-gold hover:text-oak-950 transition flex items-center gap-2">
-        <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
-        <span class="hidden sm:inline">Cart</span>
-        <span id="cart-badge" class="hidden absolute -top-2 -right-2 bg-mardi-green text-cream text-[10px] font-bold w-5 h-5 rounded-full items-center justify-center">0</span>
+    <div class="flex items-center gap-2">
+      <button onclick="openCart()" class="relative text-sm font-bold border border-ink/20 px-3 py-2 rounded-sm hover:border-ink">
+        Cart <span id="cart-badge" class="hidden ml-1 bg-cherry text-paper text-[10px] px-1.5 py-0.5 rounded-full">0</span>
       </button>
-      <a href="#events" class="font-mono text-xs uppercase tracking-widest bg-gold text-oak-950 px-4 py-2 rounded-sm font-bold hover:bg-gold-light transition">Reserve</a>
+      <a href="#order" class="text-sm font-bold bg-cherry text-paper px-4 py-2 rounded-sm hover:bg-cherryDark">Order</a>
     </div>
   </div>
 </nav>
 
-<!-- HERO -->
-<section class="relative swirl-bg pt-32 pb-24 px-5 overflow-hidden">
-  <div class="max-w-5xl mx-auto text-center relative z-10">
-    <p class="font-mono text-xs uppercase tracking-[0.3em] text-gold mb-5">Westbank &middot; New Orleans, LA</p>
-    <h1 class="font-display text-5xl sm:text-7xl md:text-8xl leading-[0.95] mb-6">
-      LET'S MAKE<br>
-      <span class="text-transparent bg-clip-text bg-gradient-to-r from-mardi-purple via-mardi-green to-gold">POUR DECISIONS</span>
-    </h1>
-    <p class="font-body text-cream/80 text-lg max-w-xl mx-auto mb-10">
-      Frozen daiquiris, crispy wings, and seafood boils — served curbside on General De Gaulle Drive, every single day of the week.
-    </p>
-    <div class="flex flex-col sm:flex-row gap-4 justify-center">
-      <a href="#lineup" class="font-mono text-sm uppercase tracking-widest bg-gold text-oak-950 px-7 py-4 rounded-sm font-bold hover:bg-gold-light transition">See This Week's Lineup</a>
-      <a href="#events" class="font-mono text-sm uppercase tracking-widest border border-cream/30 text-cream px-7 py-4 rounded-sm font-bold hover:border-gold hover:text-gold transition">Reserve Your Event</a>
+<header id="top" class="relative min-h-[88vh] flex items-end">
+  <img src="img/IMG_6814.jpg" alt="Parade crowd with Bourbon Daiquiris cups" class="absolute inset-0 w-full h-full object-cover">
+  <div class="scrim absolute inset-0"></div>
+  <div class="relative z-10 max-w-6xl mx-auto px-5 pb-16 pt-32 text-paper">
+    <p class="text-xs uppercase tracking-[0.28em] mb-4">Westbank · 3637 General De Gaulle</p>
+    <h1 class="font-display text-6xl sm:text-8xl leading-[0.9] max-w-3xl">LET'S MAKE<br>POUR DECISIONS</h1>
+    <p class="mt-6 max-w-md text-paper/85 text-lg">Frozen daiquiris with gummies on top, crispy wings, and Saturday boils. Curbside, every day.</p>
+    <div class="mt-8 flex flex-wrap gap-3">
+      <a href="#order" class="bg-paper text-ink font-bold px-6 py-3 rounded-sm">Order for pickup</a>
+      <a href="#events" class="border border-paper/50 text-paper font-bold px-6 py-3 rounded-sm">This week's lineup</a>
+    </div>
+  </div>
+</header>
+
+<section class="bg-ink text-paper">
+  <div class="max-w-6xl mx-auto px-5 py-4 flex flex-wrap gap-x-8 gap-y-2 text-sm">
+    <span>4.9 on Google</span>
+    <span>Mon–Thu 12–10</span>
+    <span>Fri 12–11</span>
+    <span>Sat 11–11</span>
+    <span>Sun 11–10</span>
+  </div>
+</section>
+
+<section id="flavors" class="max-w-6xl mx-auto px-5 py-20">
+  <p class="text-xs uppercase tracking-[0.25em] text-cherry font-bold mb-2">On the machine</p>
+  <h2 class="font-display text-5xl mb-3">Cups, not stock photos</h2>
+  <p class="text-ink/70 max-w-lg mb-10">Rotating flavors, infused gummies on the specialty cups. Peach has been the month they keep posting.</p>
+  <div class="grid grid-cols-2 md:grid-cols-3 gap-4">
+    <a class="flavor block" href="#order">
+      <img src="img/IMG_6810.jpg" alt="Peach daiquiri" class="w-full aspect-[4/5] object-cover rounded-sm">
+      <p class="mt-2 font-bold">Peach</p>
+    </a>
+    <a class="flavor block" href="#order">
+      <img src="img/IMG_6812.jpg" alt="Blue raspberry daiquiri" class="w-full aspect-[4/5] object-cover rounded-sm">
+      <p class="mt-2 font-bold">Blue raspberry</p>
+    </a>
+    <a class="flavor block" href="#order">
+      <img src="img/IMG_6809.jpg" alt="Purple daiquiri" class="w-full aspect-[4/5] object-cover rounded-sm">
+      <p class="mt-2 font-bold">Purple</p>
+    </a>
+    <a class="flavor block" href="#order">
+      <img src="img/IMG_6803.jpg" alt="Red daiquiri with gummies" class="w-full aspect-[4/5] object-cover rounded-sm">
+      <p class="mt-2 font-bold">Cherry, gummies on top</p>
+    </a>
+    <a class="flavor block" href="#order">
+      <img src="img/IMG_6806.jpg" alt="Blue-purple daiquiri with gummies" class="w-full aspect-[4/5] object-cover rounded-sm">
+      <p class="mt-2 font-bold">Blue, loaded</p>
+    </a>
+    <a class="flavor block" href="#order">
+      <img src="img/IMG_6811.jpg" alt="Red daiquiri closeup" class="w-full aspect-[4/5] object-cover rounded-sm">
+      <p class="mt-2 font-bold">House red</p>
+    </a>
+  </div>
+</section>
+
+<section id="menu" class="bg-white border-y border-ink/10">
+  <div class="max-w-6xl mx-auto px-5 py-20 grid lg:grid-cols-2 gap-12 items-start">
+    <div>
+      <p class="text-xs uppercase tracking-[0.25em] text-cherry font-bold mb-2">The board</p>
+      <h2 class="font-display text-5xl mb-8">Wings, fries, boils</h2>
+      <div class="divide-y divide-ink/10">
+        <div class="py-4 flex justify-between gap-6"><div><p class="font-bold">Daiquiri · 16 oz</p><p class="text-sm text-ink/60">Ask for a sample before you lock it in.</p></div><p class="font-bold">$7</p></div>
+        <div class="py-4 flex justify-between gap-6"><div><p class="font-bold">Daiquiri · 20 oz</p><p class="text-sm text-ink/60">Specialty cups come with infused gummies.</p></div><p class="font-bold">$9</p></div>
+        <div class="py-4 flex justify-between gap-6"><div><p class="font-bold">Wings · 5 pc</p><p class="text-sm text-ink/60">House sauces, rotating.</p></div><p class="font-bold">$7</p></div>
+        <div class="py-4 flex justify-between gap-6"><div><p class="font-bold">Wings · 10 pc</p><p class="text-sm text-ink/60">The plate they post most.</p></div><p class="font-bold">$12</p></div>
+        <div class="py-4 flex justify-between gap-6"><div><p class="font-bold">Loaded fries</p><p class="text-sm text-ink/60">Cheese, bacon, green onion.</p></div><p class="font-bold">Ask</p></div>
+        <div class="py-4 flex justify-between gap-6"><div><p class="font-bold">Seafood Saturday</p><p class="text-sm text-ink/60">Shrimp, sausage, corn, potatoes. 3pm until gone.</p></div><p class="font-bold">Sat</p></div>
+      </div>
+    </div>
+    <div class="grid grid-cols-2 gap-3">
+      <img src="img/IMG_6817.jpg" alt="In-shop hours and flavor board" class="col-span-2 w-full aspect-[16/10] object-cover object-top rounded-sm">
+      <img src="img/IMG_6804.jpg" alt="Loaded fries" class="w-full aspect-square object-cover rounded-sm">
+      <img src="img/IMG_6815.jpg" alt="Seafood boil" class="w-full aspect-square object-cover rounded-sm">
     </div>
   </div>
 </section>
 
-<!-- FLAVOR WALL (signature element) -->
-<section class="px-5 py-10 border-y border-gold/15 bg-oak-900">
-  <div class="max-w-5xl mx-auto">
-    <p class="font-mono text-xs uppercase tracking-[0.25em] text-gold mb-6 text-center">Flavor of the Month &middot; Peaches &amp; Cream</p>
-    <div class="flex justify-center gap-4 sm:gap-6 flex-wrap">
-      <div class="flavor-dot w-16 h-16 sm:w-20 sm:h-20 rounded-full" style="background:radial-gradient(circle at 35% 30%, #ffd9a0, #ff9d5c);"></div>
-      <div class="flavor-dot w-16 h-16 sm:w-20 sm:h-20 rounded-full" style="background:radial-gradient(circle at 35% 30%, #c56bd6, #7B2D8E);"></div>
-      <div class="flavor-dot w-16 h-16 sm:w-20 sm:h-20 rounded-full" style="background:radial-gradient(circle at 35% 30%, #4fd98a, #00843D);"></div>
-      <div class="flavor-dot w-16 h-16 sm:w-20 sm:h-20 rounded-full" style="background:radial-gradient(circle at 35% 30%, #f0d28a, #d4a24c);"></div>
-      <div class="flavor-dot w-16 h-16 sm:w-20 sm:h-20 rounded-full" style="background:radial-gradient(circle at 35% 30%, #cbb0ec, #7B2D8E);"></div>
-    </div>
+<section id="events" class="max-w-6xl mx-auto px-5 py-20">
+  <p class="text-xs uppercase tracking-[0.25em] text-cherry font-bold mb-2">It's never a quiet week</p>
+  <h2 class="font-display text-5xl mb-10">What they actually post</h2>
+  <div class="grid md:grid-cols-3 gap-5">
+    <article>
+      <img src="img/IMG_6808.jpg" alt="Seafood Saturday flyer" class="w-full aspect-[4/5] object-cover object-top rounded-sm">
+      <h3 class="font-display text-2xl mt-3">Seafood Saturday</h3>
+      <p class="text-sm text-ink/70">Boil from 3pm until it's gone. DJ 3stackz 4–7.</p>
+    </article>
+    <article>
+      <img src="img/IMG_6807.jpg" alt="Hibachi and hookah night flyer" class="w-full aspect-[4/5] object-cover object-top rounded-sm">
+      <h3 class="font-display text-2xl mt-3">Hibachi nights</h3>
+      <p class="text-sm text-ink/70">Gordo's on the grill, hookah, DJ, raffle. Trailer stays open.</p>
+    </article>
+    <article>
+      <img src="img/IMG_6813.jpg" alt="Karaoke Mom's Night Out flyer" class="w-full aspect-[4/5] object-cover object-top rounded-sm">
+      <h3 class="font-display text-2xl mt-3">Karaoke nights</h3>
+      <p class="text-sm text-ink/70">Mom's Night Out edition. Prizes, drink specials, Harry Landry hosting.</p>
+    </article>
   </div>
 </section>
 
-<!-- WEEKLY LINEUP -->
-<section id="lineup" class="px-5 py-20">
-  <div class="max-w-6xl mx-auto">
-    <p class="font-mono text-xs uppercase tracking-[0.25em] text-mardi-green mb-2">The Lineup</p>
-    <h2 class="font-display text-4xl md:text-5xl mb-12">It's Never a Quiet Week</h2>
-    <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-5">
-      <div class="ticket rounded-sm p-6">
-        <p class="font-mono text-xs text-mardi-purple mb-3">SAT &middot; 3PM–UNTIL GONE</p>
-        <h3 class="font-display text-2xl mb-2">Seafood Saturday</h3>
-        <p class="text-cream/70 text-sm">Shrimp, sausage, corn & potatoes with DJ 3stackz spinning 4–7PM.</p>
-      </div>
-      <div class="ticket rounded-sm p-6">
-        <p class="font-mono text-xs text-mardi-green mb-3">WEEKLY &middot; SIGN UP IN-SHOP</p>
-        <h3 class="font-display text-2xl mb-2">UNO Tournament</h3>
-        <p class="text-cream/70 text-sm">Game night with prizes on the line. Spots fill fast.</p>
-      </div>
-      <div class="ticket rounded-sm p-6">
-        <p class="font-mono text-xs text-gold mb-3">MONTHLY DRAW</p>
-        <h3 class="font-display text-2xl mb-2">Birthday Raffle</h3>
-        <p class="text-cream/70 text-sm">Buy a 20oz daiquiri, get a shot at winning a full birthday party.</p>
-      </div>
-      <div class="ticket rounded-sm p-6">
-        <p class="font-mono text-xs text-gold mb-3">NEW EVERY MONTH</p>
-        <h3 class="font-display text-2xl mb-2">Daiquiri of the Month</h3>
-        <p class="text-cream/70 text-sm">A new flavor, infused gummies on top, NOLA spirit in every cup.</p>
-      </div>
-    </div>
+<section id="order" class="bg-ink text-paper">
+  <div class="max-w-6xl mx-auto px-5 py-20">
+    <p class="text-xs uppercase tracking-[0.25em] text-paper/60 font-bold mb-2">Pickup window</p>
+    <h2 class="font-display text-5xl mb-3">Order ahead</h2>
+    <p class="text-paper/70 max-w-lg mb-10">Mock checkout for the demo. Tax at the window. Ready in about 15–20 minutes at 3637 General De Gaulle.</p>
+    <div id="order-grid" class="grid sm:grid-cols-2 lg:grid-cols-4 gap-4"></div>
   </div>
 </section>
 
-<!-- MENU -->
-<section id="menu" class="px-5 py-20 bg-oak-900 border-y border-gold/15">
-  <div class="max-w-6xl mx-auto">
-    <p class="font-mono text-xs uppercase tracking-[0.25em] text-gold mb-2">On the Menu</p>
-    <h2 class="font-display text-4xl md:text-5xl mb-12">Wings, Daiquiris &amp; Things</h2>
-    <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-      <div class="bg-oak-800 rounded-sm overflow-hidden border border-gold/10">
-        <div class="photo-frame">
-          <img src="img/wings.jpg" alt="Crispy signature wings" onerror="this.style.display='none'; this.parentElement.innerHTML='<div class=&quot;placeholder-label&quot;>Photo Coming Soon<br>Signature Wings</div>'">
-        </div>
-        <div class="p-5">
-          <h3 class="font-display text-xl mb-1">Signature Wings</h3>
-          <p class="text-cream/70 text-sm">Crispy wings tossed in a rotating lineup of house sauces.</p>
-        </div>
-      </div>
-      <div class="bg-oak-800 rounded-sm overflow-hidden border border-gold/10">
-        <div class="photo-frame">
-          <img src="img/daiquiris.jpg" alt="Frozen daiquiri flavors" onerror="this.style.display='none'; this.parentElement.innerHTML='<div class=&quot;placeholder-label&quot;>Photo Coming Soon<br>Frozen Daiquiris</div>'">
-        </div>
-        <div class="p-5">
-          <h3 class="font-display text-xl mb-1">Frozen Daiquiris</h3>
-          <p class="text-cream/70 text-sm">Rotating flavors, jello shot pairings, infused gummies on top.</p>
-        </div>
-      </div>
-      <div class="bg-oak-800 rounded-sm overflow-hidden border border-gold/10">
-        <div class="photo-frame">
-          <img src="img/boil.jpg" alt="Seafood boil" onerror="this.style.display='none'; this.parentElement.innerHTML='<div class=&quot;placeholder-label&quot;>Photo Coming Soon<br>Seafood Boil</div>'">
-        </div>
-        <div class="p-5">
-          <h3 class="font-display text-xl mb-1">Seafood Boil</h3>
-          <p class="text-cream/70 text-sm">Shrimp, sausage, corn, potatoes & turkey necks — Saturdays.</p>
-        </div>
-      </div>
+<section id="visit" class="max-w-6xl mx-auto px-5 py-20 grid md:grid-cols-2 gap-10">
+  <div>
+    <p class="text-xs uppercase tracking-[0.25em] text-cherry font-bold mb-2">Find the trailer</p>
+    <h2 class="font-display text-5xl mb-4">On the Westbank</h2>
+    <p class="text-lg">3637 General De Gaulle Drive<br>New Orleans, LA 70114</p>
+    <ul class="mt-6 space-y-1 text-ink/80">
+      <li>Mon–Thu · 12pm – 10pm</li>
+      <li>Friday · 12pm – 11pm</li>
+      <li>Saturday · 11am – 11pm</li>
+      <li>Sunday · 11am – 10pm</li>
+    </ul>
+    <div class="mt-8 flex flex-wrap gap-3">
+      <a class="border border-ink px-4 py-2 text-sm font-bold rounded-sm" href="https://www.instagram.com/bourbondaiquiris_nola/" target="_blank" rel="noopener">Instagram</a>
+      <a class="border border-ink px-4 py-2 text-sm font-bold rounded-sm" href="https://www.facebook.com/Bourbon-Daiquiri-Wings-and-Things-61569027869176/" target="_blank" rel="noopener">Facebook</a>
+      <a class="border border-ink px-4 py-2 text-sm font-bold rounded-sm" href="https://www.google.com/maps/search/?api=1&query=Bourbon+Daiquiris+Wings+and+Things+3637+General+De+Gaulle" target="_blank" rel="noopener">Directions</a>
     </div>
   </div>
+  <img src="img/IMG_6816.jpg" alt="Wings and loaded fries promo" class="w-full h-full min-h-[280px] object-cover rounded-sm">
 </section>
 
-<!-- ORDER ONLINE -->
-<section id="order" class="px-5 py-20">
-  <div class="max-w-5xl mx-auto">
-    <p class="font-mono text-xs uppercase tracking-[0.25em] text-mardi-purple mb-2">Order Ahead</p>
-    <h2 class="font-display text-4xl md:text-5xl mb-3">Order for Pickup</h2>
-    <p class="text-cream/70 mb-12 max-w-lg">Skip the wait — place your order and pick it up at the window on General De Gaulle.</p>
+<footer class="border-t border-ink/10 px-5 py-8 text-sm text-ink/60">
+  <div class="max-w-6xl mx-auto flex flex-wrap justify-between gap-3">
+    <span>Bourbon Daiquiris Wings & Things</span>
+    <span>Demo by In-flu-ential</span>
+  </div>
+</footer>
 
-    <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-5" id="order-grid">
-      <!-- product cards injected by JS from PRODUCTS array -->
-    </div>
+<div id="cart-overlay" onclick="closeCart()" class="hidden fixed inset-0 bg-black/50 z-[60]"></div>
+<aside id="cart-drawer" class="fixed top-0 right-0 h-full w-full sm:w-[400px] bg-paper z-[70] translate-x-full transition-transform duration-300 flex flex-col border-l border-ink/10">
+  <div class="flex items-center justify-between px-6 py-5 border-b border-ink/10">
+    <h3 class="font-display text-2xl">Your order</h3>
+    <button onclick="closeCart()" class="text-2xl leading-none">&times;</button>
   </div>
-</section>
-
-<!-- CART DRAWER -->
-<div id="cart-overlay" onclick="closeCart()" class="hidden fixed inset-0 bg-black/70 z-[60]"></div>
-<aside id="cart-drawer" class="fixed top-0 right-0 h-full w-full sm:w-[420px] bg-oak-900 border-l border-gold/20 z-[70] translate-x-full transition-transform duration-300 flex flex-col">
-  <div class="flex items-center justify-between px-6 py-5 border-b border-gold/15">
-    <h3 class="font-display text-2xl text-gold">Your Order</h3>
-    <button onclick="closeCart()" class="text-cream/60 hover:text-gold text-2xl leading-none">&times;</button>
-  </div>
-  <div id="cart-items" class="flex-1 overflow-y-auto px-6 py-5 space-y-4">
-    <!-- cart line items injected by JS -->
-  </div>
-  <div class="px-6 py-5 border-t border-gold/15">
-    <div class="flex justify-between font-mono text-sm text-cream/70 mb-1">
-      <span>Subtotal</span>
-      <span id="cart-subtotal">$0.00</span>
-    </div>
-    <p class="font-mono text-[11px] text-cream/40 mb-4">Tax calculated at pickup window.</p>
-    <button id="checkout-btn" onclick="openCheckout()" class="w-full font-mono text-sm uppercase tracking-widest bg-gold text-oak-950 py-4 rounded-sm font-bold hover:bg-gold-light transition disabled:opacity-40 disabled:cursor-not-allowed">Checkout</button>
+  <div id="cart-items" class="flex-1 overflow-y-auto px-6 py-5 space-y-4"></div>
+  <div class="px-6 py-5 border-t border-ink/10">
+    <div class="flex justify-between text-sm mb-1"><span>Subtotal</span><span id="cart-subtotal">$0.00</span></div>
+    <p class="text-xs text-ink/50 mb-4">Tax at the pickup window.</p>
+    <button id="checkout-btn" onclick="openCheckout()" class="w-full bg-cherry text-paper font-bold py-3 rounded-sm">Checkout</button>
   </div>
 </aside>
 
-<!-- CHECKOUT MODAL -->
-<div id="checkout-modal" class="hidden fixed inset-0 z-[80] items-center justify-center bg-black/80 px-5">
-  <div class="bg-oak-900 border border-gold/30 rounded-sm max-w-md w-full p-8 relative">
-    <button onclick="closeCheckout()" class="absolute top-4 right-4 text-cream/60 hover:text-gold text-2xl leading-none">&times;</button>
-
-    <!-- Step: details form -->
+<div id="checkout-modal" class="hidden fixed inset-0 z-[80] items-center justify-center bg-black/60 px-5">
+  <div class="bg-paper max-w-md w-full p-8 relative rounded-sm">
+    <button onclick="closeCheckout()" class="absolute top-4 right-4 text-2xl">&times;</button>
     <div id="checkout-form-view">
-      <p class="font-mono text-xs uppercase tracking-[0.25em] text-mardi-green mb-2">Pickup Details</p>
-      <h3 class="font-display text-3xl mb-6">Almost There</h3>
-      <div class="space-y-4 mb-6">
-        <div>
-          <label class="font-mono text-xs uppercase tracking-widest text-cream/50 block mb-1">Name</label>
-          <input id="checkout-name" type="text" placeholder="Your name" class="w-full bg-oak-800 border border-gold/20 rounded-sm px-4 py-3 text-cream placeholder:text-cream/30 focus:outline-none focus:border-gold">
-        </div>
-        <div>
-          <label class="font-mono text-xs uppercase tracking-widest text-cream/50 block mb-1">Phone</label>
-          <input id="checkout-phone" type="tel" placeholder="(504) 000-0000" class="w-full bg-oak-800 border border-gold/20 rounded-sm px-4 py-3 text-cream placeholder:text-cream/30 focus:outline-none focus:border-gold">
-        </div>
-      </div>
-      <div class="ticket rounded-sm p-4 mb-6">
-        <div id="checkout-summary" class="font-mono text-xs text-cream/70 space-y-1"></div>
-        <div class="flex justify-between font-mono text-sm text-gold mt-3 pt-3 border-t border-gold/20">
-          <span>Total</span>
-          <span id="checkout-total">$0.00</span>
-        </div>
-      </div>
-      <button onclick="placeOrder()" class="w-full font-mono text-sm uppercase tracking-widest bg-gold text-oak-950 py-4 rounded-sm font-bold hover:bg-gold-light transition">Place Order</button>
-      <p class="font-mono text-[10px] text-cream/30 text-center mt-3">Demo checkout — no payment is processed.</p>
+      <p class="text-xs uppercase tracking-[0.25em] text-cherry font-bold mb-2">Pickup</p>
+      <h3 class="font-display text-3xl mb-5">Name for the window</h3>
+      <input id="checkout-name" type="text" placeholder="Your name" class="w-full border border-ink/20 px-4 py-3 mb-4 rounded-sm">
+      <input id="checkout-phone" type="tel" placeholder="Phone" class="w-full border border-ink/20 px-4 py-3 mb-6 rounded-sm">
+      <button onclick="placeOrder()" class="w-full bg-ink text-paper font-bold py-3 rounded-sm">Place order</button>
     </div>
-
-    <!-- Step: success -->
-    <div id="checkout-success-view" class="hidden text-center py-4">
-      <div class="w-16 h-16 rounded-full bg-mardi-green/20 border border-mardi-green flex items-center justify-center mx-auto mb-5">
-        <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8 text-mardi-green" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
-      </div>
-      <p class="font-mono text-xs uppercase tracking-[0.25em] text-mardi-green mb-2">Order Placed</p>
-      <h3 class="font-display text-3xl mb-3">See You Soon<span id="checkout-name-echo"></span></h3>
-      <p class="text-cream/70 text-sm mb-1">Order <span id="checkout-order-num" class="text-gold font-mono"></span></p>
-      <p class="text-cream/70 text-sm mb-6">Ready for pickup in about 15–20 minutes at 3637 General De Gaulle Drive.</p>
-      <button onclick="closeCheckout()" class="font-mono text-xs uppercase tracking-widest border border-gold text-gold px-6 py-3 rounded-sm hover:bg-gold hover:text-oak-950 transition">Done</button>
+    <div id="checkout-done" class="hidden">
+      <h3 class="font-display text-3xl mb-2">See you at the window</h3>
+      <p class="text-ink/70">About 15–20 minutes. 3637 General De Gaulle Drive.</p>
     </div>
   </div>
 </div>
 
-<!-- BOOK YOUR EVENT -->
-<section id="events" class="px-5 py-20">
-  <div class="max-w-4xl mx-auto text-center">
-    <p class="font-mono text-xs uppercase tracking-[0.25em] text-gold mb-2">Private Events</p>
-    <h2 class="font-display text-4xl md:text-5xl mb-6">Book the Trailer for Your Next Thing</h2>
-    <p class="text-cream/70 max-w-xl mx-auto mb-10">Birthdays, cookouts, and collabs — we bring the daiquiris and wings to you. Send us your date and we'll get back to you with pricing.</p>
-    <div class="ticket inline-block rounded-sm px-10 py-8 text-left mx-auto">
-      <p class="font-mono text-xs text-mardi-purple mb-2">EVENT REQUEST</p>
-      <p class="font-display text-2xl mb-4">Ready to Reserve?</p>
-      <a href="https://docs.google.com/forms/d/e/1FAIpQLSe2XDILpDDTI6h9aDiAUACLpvGGyXctw7nS4G2AeakjhvVTjw/viewform?usp=preview" target="_blank" rel="noopener" class="inline-block font-mono text-sm uppercase tracking-widest bg-gold text-oak-950 px-6 py-3 rounded-sm font-bold hover:bg-gold-light transition">Reserve Your Event</a>
-    </div>
-  </div>
-</section>
-
-<!-- VISIT / HOURS -->
-<section id="visit" class="px-5 py-20 bg-oak-900 border-y border-gold/15">
-  <div class="max-w-5xl mx-auto grid md:grid-cols-2 gap-12">
-    <div>
-      <p class="font-mono text-xs uppercase tracking-[0.25em] text-mardi-green mb-2">Find Us</p>
-      <h2 class="font-display text-4xl mb-6">On the Westbank</h2>
-      <p class="text-cream/80 mb-1">3637 General De Gaulle Drive</p>
-      <p class="text-cream/80 mb-6">New Orleans, LA 70114</p>
-      <p class="font-mono text-xs uppercase tracking-widest text-gold mb-2">Hours</p>
-      <ul class="text-cream/70 text-sm space-y-1 font-mono">
-        <li>Mon–Thu: 12PM – 10PM</li>
-        <li>Fri: 12PM – 11PM</li>
-        <li>Sat: 11AM – 11PM</li>
-        <li>Sun: 11AM – 10PM</li>
-      </ul>
-    </div>
-    <div class="ticket rounded-sm p-8">
-      <p class="font-mono text-xs text-gold mb-2">WE'RE HIRING</p>
-      <h3 class="font-display text-2xl mb-3">Become a Team Member</h3>
-      <p class="text-cream/70 text-sm mb-5">Join the crew slinging daiquiris and wings on General De Gaulle. Reach out and let's talk.</p>
-      <a href="#visit" class="font-mono text-xs uppercase tracking-widest border border-gold text-gold px-5 py-3 rounded-sm inline-block hover:bg-gold hover:text-oak-950 transition">Get In Touch</a>
-    </div>
-  </div>
-</section>
-
-<!-- FOOTER -->
-<footer class="px-5 py-10 text-center">
-  <p class="font-display text-xl text-gold mb-2">BOURBON DAIQUIRIS WINGS &amp; THINGS</p>
-  <p class="font-mono text-xs text-cream/50">3637 General De Gaulle Drive, New Orleans, LA 70114</p>
-</footer>
-
 <script>
-  const PRODUCTS = [
-    { id: 'wings',     name: 'Signature Wings',   desc: '6pc, tossed in your choice of house sauce', price: 9.99,  img: 'img/wings.jpg' },
-    { id: 'mozz',      name: 'Mozzarella Sticks',  desc: '6pc, crispy fried, marinara on the side',    price: 7.99,  img: 'img/mozz-sticks.jpg' },
-    { id: 'fries',     name: 'Fries',              desc: 'Seasoned crinkle-cut, fresh cut daily',      price: 4.99,  img: 'img/fries.jpg' },
-    { id: 'tots',      name: 'Tater Tots',         desc: 'Golden and crispy, house seasoning',         price: 5.99,  img: 'img/tater-tots.jpg' },
-  ];
-
-  let cart = {}; // { productId: qty }
-
-  function fmt(n) { return '$' + n.toFixed(2); }
-
-  function renderProducts() {
-    const grid = document.getElementById('order-grid');
-    grid.innerHTML = PRODUCTS.map(p => `
-      <div class="bg-oak-800 rounded-sm overflow-hidden border border-gold/10 flex flex-col">
-        <div class="photo-frame">
-          <img src="${p.img}" alt="${p.name}" onerror="this.style.display='none'; this.parentElement.innerHTML='<div class=&quot;placeholder-label&quot;>Photo Coming Soon<br>${p.name}</div>'">
-        </div>
-        <div class="p-5 flex flex-col flex-1">
-          <h3 class="font-display text-xl mb-1">${p.name}</h3>
-          <p class="text-cream/60 text-xs mb-3 flex-1">${p.desc}</p>
-          <div class="flex items-center justify-between">
-            <span class="font-mono text-gold text-sm">${fmt(p.price)}</span>
-            <button onclick="addToCart('${p.id}')" class="font-mono text-[11px] uppercase tracking-widest bg-gold text-oak-950 px-3 py-2 rounded-sm font-bold hover:bg-gold-light transition">Add</button>
-          </div>
-        </div>
-      </div>
-    `).join('');
-  }
-
-  function addToCart(id) {
-    cart[id] = (cart[id] || 0) + 1;
-    renderCart();
-    openCart();
-  }
-
-  function changeQty(id, delta) {
-    if (!cart[id]) return;
-    cart[id] += delta;
-    if (cart[id] <= 0) delete cart[id];
-    renderCart();
-  }
-
-  function cartCount() {
-    return Object.values(cart).reduce((sum, q) => sum + q, 0);
-  }
-
-  function cartTotal() {
-    return Object.entries(cart).reduce((sum, [id, q]) => {
-      const p = PRODUCTS.find(p => p.id === id);
-      return sum + (p ? p.price * q : 0);
-    }, 0);
-  }
-
-  function renderCart() {
-    const count = cartCount();
-    const badge = document.getElementById('cart-badge');
-    if (count > 0) {
-      badge.textContent = count;
-      badge.classList.remove('hidden');
-      badge.classList.add('flex');
-    } else {
-      badge.classList.add('hidden');
-      badge.classList.remove('flex');
-    }
-
-    const itemsEl = document.getElementById('cart-items');
-    const entries = Object.entries(cart);
-    if (entries.length === 0) {
-      itemsEl.innerHTML = `<p class="text-cream/40 font-mono text-sm text-center py-10">Your cart is empty.<br>Add something tasty.</p>`;
-    } else {
-      itemsEl.innerHTML = entries.map(([id, q]) => {
-        const p = PRODUCTS.find(p => p.id === id);
-        return `
-          <div class="flex items-center justify-between gap-3 ticket rounded-sm p-4">
-            <div class="flex-1">
-              <p class="font-display text-lg leading-tight">${p.name}</p>
-              <p class="font-mono text-xs text-gold">${fmt(p.price)}</p>
-            </div>
-            <div class="flex items-center gap-2">
-              <button onclick="changeQty('${id}', -1)" class="w-7 h-7 border border-gold/30 rounded-sm text-gold hover:bg-gold hover:text-oak-950 transition">-</button>
-              <span class="font-mono w-5 text-center">${q}</span>
-              <button onclick="changeQty('${id}', 1)" class="w-7 h-7 border border-gold/30 rounded-sm text-gold hover:bg-gold hover:text-oak-950 transition">+</button>
-            </div>
-          </div>
-        `;
-      }).join('');
-    }
-
-    document.getElementById('cart-subtotal').textContent = fmt(cartTotal());
-    document.getElementById('checkout-btn').disabled = entries.length === 0;
-  }
-
-  function openCart() {
-    document.getElementById('cart-overlay').classList.remove('hidden');
-    document.getElementById('cart-drawer').classList.remove('translate-x-full');
-  }
-  function closeCart() {
-    document.getElementById('cart-overlay').classList.add('hidden');
-    document.getElementById('cart-drawer').classList.add('translate-x-full');
-  }
-
-  function openCheckout() {
-    if (cartCount() === 0) return;
-    closeCart();
-    document.getElementById('checkout-form-view').classList.remove('hidden');
-    document.getElementById('checkout-success-view').classList.add('hidden');
-    const summary = document.getElementById('checkout-summary');
-    summary.innerHTML = Object.entries(cart).map(([id, q]) => {
-      const p = PRODUCTS.find(p => p.id === id);
-      return `<div class="flex justify-between"><span>${q}&times; ${p.name}</span><span>${fmt(p.price * q)}</span></div>`;
-    }).join('');
-    document.getElementById('checkout-total').textContent = fmt(cartTotal());
-    const modal = document.getElementById('checkout-modal');
-    modal.classList.remove('hidden');
-    modal.classList.add('flex');
-  }
-
-  function closeCheckout() {
-    const modal = document.getElementById('checkout-modal');
-    modal.classList.add('hidden');
-    modal.classList.remove('flex');
-  }
-
-  function placeOrder() {
-    const name = document.getElementById('checkout-name').value.trim() || 'Friend';
-    const orderNum = '#BD' + Math.floor(1000 + Math.random() * 9000);
-    document.getElementById('checkout-name-echo').textContent = ', ' + name.split(' ')[0];
-    document.getElementById('checkout-order-num').textContent = orderNum;
-    document.getElementById('checkout-form-view').classList.add('hidden');
-    document.getElementById('checkout-success-view').classList.remove('hidden');
-    cart = {};
-    renderCart();
-  }
-
-  renderProducts();
+const PRODUCTS = [
+  { id: 'd16', name: 'Daiquiri 16oz', price: 7, img: 'img/IMG_6810.jpg' },
+  { id: 'd20', name: 'Daiquiri 20oz', price: 9, img: 'img/IMG_6805.jpg' },
+  { id: 'w5', name: 'Wings 5pc', price: 7, img: 'img/IMG_6816.jpg' },
+  { id: 'w10', name: 'Wings 10pc', price: 12, img: 'img/IMG_6804.jpg' }
+];
+let cart = [];
+const grid = document.getElementById('order-grid');
+PRODUCTS.forEach(p => {
+  const el = document.createElement('button');
+  el.className = 'text-left bg-paper text-ink rounded-sm overflow-hidden';
+  el.innerHTML = `<img src="${p.img}" alt="" class="w-full aspect-square object-cover"><div class="p-4"><p class="font-bold">${p.name}</p><p class="text-sm">$${p.price.toFixed(2)}</p><p class="text-xs mt-2 uppercase tracking-widest text-cherry font-bold">Add</p></div>`;
+  el.onclick = () => add(p.id);
+  grid.appendChild(el);
+});
+function add(id) {
+  const hit = cart.find(i => i.id === id);
+  if (hit) hit.qty++; else cart.push({ id, qty: 1 });
   renderCart();
+  openCart();
+}
+function renderCart() {
+  const box = document.getElementById('cart-items');
+  const badge = document.getElementById('cart-badge');
+  const n = cart.reduce((s, i) => s + i.qty, 0);
+  badge.textContent = n;
+  badge.classList.toggle('hidden', n === 0);
+  if (!cart.length) { box.innerHTML = '<p class="text-ink/50">Nothing in the cup yet.</p>'; }
+  else box.innerHTML = cart.map(i => {
+    const p = PRODUCTS.find(x => x.id === i.id);
+    return `<div class="flex justify-between gap-3"><div><p class="font-bold">${p.name}</p><p class="text-sm text-ink/60">× ${i.qty}</p></div><p>$${(p.price * i.qty).toFixed(2)}</p></div>`;
+  }).join('');
+  const sub = cart.reduce((s, i) => s + PRODUCTS.find(x => x.id === i.id).price * i.qty, 0);
+  document.getElementById('cart-subtotal').textContent = '$' + sub.toFixed(2);
+}
+function openCart() { document.getElementById('cart-drawer').style.transform = 'translateX(0)'; document.getElementById('cart-overlay').classList.remove('hidden'); }
+function closeCart() { document.getElementById('cart-drawer').style.transform = ''; document.getElementById('cart-overlay').classList.add('hidden'); }
+function openCheckout() {
+  if (!cart.length) return;
+  const m = document.getElementById('checkout-modal');
+  m.classList.remove('hidden'); m.classList.add('flex');
+}
+function closeCheckout() {
+  const m = document.getElementById('checkout-modal');
+  m.classList.add('hidden'); m.classList.remove('flex');
+}
+function placeOrder() {
+  const name = document.getElementById('checkout-name').value.trim();
+  if (!name) return;
+  document.getElementById('checkout-form-view').classList.add('hidden');
+  document.getElementById('checkout-done').classList.remove('hidden');
+  cart = []; renderCart();
+}
+renderCart();
 </script>
 </body>
 </html>
