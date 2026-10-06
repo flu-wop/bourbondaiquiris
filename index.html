@@ -104,7 +104,7 @@
   .hero__photo { animation: rise 1s .15s cubic-bezier(.2, .7, .2, 1) both; }
 
   /* flavor dots */
-  .dots { background: var(--dark) !important; border-block: 1px solid var(--border); padding: 36px 0 32px; text-align: center; }
+  .dots { background: var(--dark); border-block: 1px solid var(--border); padding: 36px 0 32px; text-align: center; }
   .dots__row { display: flex; justify-content: center; flex-wrap: wrap; gap: clamp(12px, 2.4vw, 28px); }
   .dot { width: clamp(52px, 8vw, 78px); aspect-ratio: 1; border-radius: 50%; border: 0; padding: 0; cursor: pointer; background: radial-gradient(circle at 35% 30%, rgba(255, 255, 255, .55), transparent 38%), var(--c); box-shadow: 0 10px 24px rgba(0, 0, 0, .5), inset 0 -6px 0 rgba(0, 0, 0, .18); transition: transform .35s ease; }
   .dot:hover, .dot:focus-visible { transform: scale(1.14) rotate(8deg); }
@@ -138,7 +138,6 @@
   .dish:hover { transform: translateY(-4px); border-color: rgba(212, 175, 119, .45); box-shadow: 0 18px 40px rgba(0, 0, 0, .5); }
   .ph { position: relative; aspect-ratio: 4 / 3; display: grid; place-items: center; text-align: center; color: var(--mist); font: 400 .7rem var(--mono); letter-spacing: .12em; text-transform: uppercase; background: repeating-linear-gradient(135deg, #161616 0 14px, #1c1c1c 14px 28px); border-bottom: 1px solid var(--border); }
   .ph svg { width: 54px; height: 54px; stroke: var(--gold-dark); fill: none; stroke-width: 1.4; stroke-linecap: round; stroke-linejoin: round; margin: 0 auto 8px; display: block; }
-  .dish .shot { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; border-bottom: 1px solid var(--border); }
   .dish__body { display: flex; flex-direction: column; flex: 1; padding: 18px 18px 20px; }
   .dish p { color: var(--mist); font-size: .92rem; margin: 6px 0 16px; flex: 1; }
   .dish__foot { display: flex; align-items: center; justify-content: space-between; gap: 10px; }
@@ -180,7 +179,7 @@
   .tk:nth-child(4) .tag { color: var(--purple-light); }
   .tk h3 { font: 400 1.7rem/1.05 var(--loud); text-transform: uppercase; letter-spacing: .01em; margin-bottom: 8px; }
   .tk p { color: var(--mist); font-size: .95rem; }
-  .nights__pics { display: grid; grid-template-columns: minmax(220px, 340px) 1fr; gap: 24px; margin-top: 56px; align-items: start; }
+  .nights__pics { display: grid; grid-template-columns: minmax(220px, 340px) minmax(0, 590px); gap: 28px; justify-content: center; margin-top: 56px; align-items: start; }
   .nights__pics img { width: 100%; border: 1px solid var(--border); }
   .nights__pics figcaption { margin-top: 10px; font: 400 .78rem var(--mono); color: var(--mist); }
 
@@ -268,7 +267,7 @@
     .hero__in { grid-template-columns: 1fr; min-height: 0; }
     .hero__photo { max-width: 560px; margin-right: 16px; }
     .ticket { position: relative; left: auto; top: auto; margin: -36px 0 0 -8px; width: min(300px, 88%); transform: none; }
-    .mix__in, .board__grid, .nights__in, .book__in, .visit__in { grid-template-columns: 1fr; }
+    .mix__in, .board__grid, .book__in, .visit__in { grid-template-columns: 1fr; }
     .mix__in { gap: 24px; }
     .cup { max-width: 160px; margin-inline: 0; }
     .mix__in > div { display: flex; flex-direction: column; }
@@ -414,11 +413,13 @@
         </div>
       </article>
       <article class="dish">
-        <img class="shot" src="img/fries.jpg" alt="Loaded fries with cheese, bacon, and green onion">
+        <div class="ph" role="img" aria-label="Placeholder for a photo of Fries">
+          <div><svg viewBox="0 0 64 64" aria-hidden="true"><path d="M16 26h32l-4 28H20z"/><path d="M22 26l-2-12M30 26l-1-14M38 26l2-14M46 26l3-10"/></svg>Photo coming soon</div>
+        </div>
         <div class="dish__body">
-          <h3>Loaded Fries</h3>
-          <p>Cheese, bacon, green onion. The plate from the shop photos.</p>
-          <div class="dish__foot"><span class="mono">$4.99</span><button type="button" class="btn btn--gold btn--sm" data-food="fries" data-name="Loaded Fries" data-detail="Cheese, bacon, green onion" data-price="4.99">Add</button></div>
+          <h3>Fries</h3>
+          <p>Seasoned crinkle-cut, fresh cut daily.</p>
+          <div class="dish__foot"><span class="mono">$4.99</span><button type="button" class="btn btn--gold btn--sm" data-food="fries" data-name="Fries" data-detail="Seasoned crinkle-cut" data-price="4.99">Add</button></div>
         </div>
       </article>
       <article class="dish">
@@ -429,14 +430,6 @@
           <h3>Tater Tots</h3>
           <p>Golden and crispy, house seasoning.</p>
           <div class="dish__foot"><span class="mono">$5.99</span><button type="button" class="btn btn--gold btn--sm" data-food="tots" data-name="Tater Tots" data-detail="House seasoning" data-price="5.99">Add</button></div>
-        </div>
-      </article>
-      <article class="dish">
-        <img class="shot" src="img/boil.jpg" alt="Saturday seafood boil with shrimp, corn, and potatoes">
-        <div class="dish__body">
-          <h3>Seafood Saturday</h3>
-          <p>Shrimp, corn, potatoes. 3pm until it’s gone. Not on the weekday window.</p>
-          <div class="dish__foot"><span class="mono">Sat</span><a class="btn btn--line btn--sm" href="#nights">The lineup</a></div>
         </div>
       </article>
     </div>
