@@ -252,6 +252,7 @@
   .err { color: #ff9fb1; min-height: 1.4em; margin: -4px 0 12px; font-weight: 500; }
   .receipt { margin: 18px 0; border-top: 1px solid var(--border); }
   .receipt li { display: flex; justify-content: space-between; gap: 16px; padding: 10px 0; border-bottom: 1px solid var(--border); font-size: .95rem; }
+  .pay-note { color: var(--cream); background: rgba(212, 175, 119, .1); border-left: 2px solid var(--gold); padding: 10px 14px; margin: 0 0 16px; font-size: .92rem; }
   .demo-note { color: var(--mist); font-size: .88rem; margin-top: 14px; }
   .sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
 
@@ -635,8 +636,8 @@
   <div class="cart__items" id="cartItems"></div>
   <div class="cart__foot">
     <div class="cart__sub"><span>Subtotal</span><span id="subtotal">$0.00</span></div>
-    <p class="cart__note">Tax at pickup.</p>
-    <button type="button" class="btn btn--gold" id="checkoutBtn" disabled>Check out</button>
+    <p class="cart__note">Pickup only. You pay at the window, and tax is added there.</p>
+    <button type="button" class="btn btn--gold" id="checkoutBtn" disabled>Place pickup order</button>
   </div>
 </aside>
 
@@ -647,13 +648,16 @@
       <h2 id="coTitle">Name for the pickup</h2>
       <label class="field"><span>Name</span><input id="coName" autocomplete="name" required></label>
       <label class="field"><span>Phone (optional)</span><input id="coPhone" type="tel" autocomplete="tel"></label>
+      <p class="pay-note">Pickup only. Your order goes on the ticket, and you pay at the window.</p>
+      <p class="pay-note" id="coAge" hidden>Daiquiris: bring a valid ID. 21 and over only.</p>
       <p class="err" id="coErr" role="alert"></p>
-      <button type="submit" class="btn btn--gold" style="width:100%">Place order</button>
+      <button type="submit" class="btn btn--gold" style="width:100%">Send to the ticket</button>
       <p class="demo-note">Demo checkout. Nothing is charged or sent.</p>
     </form>
     <div id="coDone" hidden>
       <h2>See you soon, <span id="doneName"></span>.</h2>
-      <p>Order <b id="doneNum"></b> for pickup at 3637 General De Gaulle Drive.</p>
+      <p>Order <b id="doneNum"></b> is on the ticket for pickup at 3637 General De Gaulle Drive. Pay at the window when you pick up.</p>
+      <p class="pay-note" id="doneAge" hidden>Daiquiris: bring a valid ID. 21 and over only.</p>
       <ul class="receipt" id="receipt"></ul>
       <p class="demo-note">Demo only. Nothing was charged or sent.</p>
       <button type="button" class="btn btn--line" data-close-co style="margin-top:18px">Done</button>
@@ -867,9 +871,11 @@
     drawer.classList.remove('open'); drawer.inert = true; overlay.hidden = true;
     if (lastFocus && lastFocus.focus) lastFocus.focus();
   }
+  function hasCup() { return cart.some(function (i) { return i.key.indexOf('food-') !== 0; }); }
   function openCheckout() {
     if (!cart.length) return;
     closeCart();
+    document.getElementById('coAge').hidden = !hasCup();
     coForm.hidden = false; coDone.hidden = true; coErr.textContent = '';
     co.hidden = false; coName.focus();
   }
@@ -880,11 +886,12 @@
     if (!name) { coErr.textContent = 'Add a name for the pickup.'; coName.focus(); return; }
     document.getElementById('doneName').textContent = name;
     document.getElementById('doneNum').textContent = '#' + (100 + Math.floor(Math.random() * 900));
+    document.getElementById('doneAge').hidden = !hasCup();
     var ul = document.getElementById('receipt'); ul.textContent = '';
     cart.forEach(function (i) {
       var li = mk('li'); li.appendChild(mk('span', null, i.qty + ' × ' + i.name)); li.appendChild(mk('span', null, money(i.price * i.qty))); ul.appendChild(li);
     });
-    var t = mk('li'); t.style.fontWeight = '700'; t.appendChild(mk('span', null, 'Subtotal')); t.appendChild(mk('span', null, money(total()))); ul.appendChild(t);
+    var t = mk('li'); t.style.fontWeight = '700'; t.appendChild(mk('span', null, 'Subtotal, pay at pickup')); t.appendChild(mk('span', null, money(total()))); ul.appendChild(t);
     cart = []; renderCart(false);
     coForm.hidden = true; coDone.hidden = false;
     coName.value = ''; coPhone.value = '';
